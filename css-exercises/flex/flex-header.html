@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Header 2</title>
+    <style>
+      /* this is some magical font-importing.  
+      you'll learn about it later. */
+      @import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;1,900&display=swap');
+
+      body {
+        margin: 0;
+        background: #eee;
+        font-family: Besley, serif;
+      }
+    
+      .header {
+        background: white;
+        border-bottom: 1px solid #ddd;
+        box-shadow: 0 0 8px rgba(0,0,0,.1);
+        display: flex;
+        justify-content: space-between;
+        padding:  8px;
+      }
+    
+      .profile-image {
+        background: rebeccapurple;
+        box-shadow: inset 2px 2px 4px rgba(0,0,0,.5);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+      }
+      .left, .right{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      
+      .logo {
+        color: rebeccapurple;
+        font-size: 32px;
+        font-weight: 900;
+        font-style: italic;
+      }
+
+      button {
+        border: none;
+        border-radius: 8px;
+        background: rebeccapurple;
+        color: white;
+        padding: 8px 24px;
+      }
+
+      a {
+        /* this removes the line under our links */
+        text-decoration: none;
+        color: rebeccapurple;
+      }
+      
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: 16px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="left">
+        <div class="logo">
+          LOGO
+        </div>
+        <ul class="links">
+          <li><a href="google.com">link-one</a></li>
+          <li><a href="google.com">link-two</a></li>
+          <li><a href="google.com">link-three</a></li>
+        </ul>
+      </div>
+      
+      <div class="right">
+        <button class="notifications">
+          1 new notification
+        </button>
+        <div class="profile-image"></div>
+      </div>
+    </div>
+  </body>
+</html>
