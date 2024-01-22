@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function add7(number){
+      return number + 7
+    };
+
+    console.log(add7(3));
+
+    function multiply(number1, number2){
+      return number1 * number2
+    }
+    console.log(multiply(8,8));
+
+    
+    function capitalize(string){
+      allLowerCase = string.toLowerCase();
+      firstLetterCap = allLowerCase.charAt(0).toUpperCase() + allLowerCase.slice(1);
+      return firstLetterCap;
+    }
+  
+    console.log(capitalize("this IS a FOOBAR statemeNT"));
+
+    function lastLetter(string){
+      return string.slice(-1);
+    }
+
+    console.log(lastLetter("abcd"));
+
+  </script>
+</body>
+</html>
