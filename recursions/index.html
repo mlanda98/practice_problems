@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursions Practice</title>
+</head>
+<body>
+  <script>
+    function sumRange(num){
+      if (num == 1){
+        return 1;
+      } return num + sumRange(num - 1)
+    }
+
+    console.log(sumRange(4));
+
+    function power(x, a){
+      if (a === 0){
+        return 1;
+      } return x  * (power(x, a - 1));
+    }
+    
+
+    console.log(power(2, 0));
+
+
+    function factorial(num){
+      if (num === 1){
+        return 1;
+      } return num * (factorial(num-1));
+    } 
+
+    console.log(factorial(5));
+
+    var allAreLessThanSeven = all ([1, 2, 9], function(num){
+      return num < 7;
+    });
+    console.log(allAreLessThanSeven);
+
+    function all(array, callback){
+      if (array.length === 0) return true;
+      if (callback(array[0])){
+        return all(array.slice(1), callback);
+      } else {
+        return false;
+      }
+    }
+
+    function productOfArray(array){
+      if (array.length === 0){
+        return 1
+      } return array.shift() * productOfArray(array);
+    }
+
+    let result = productOfArray([1, 2, 3]);
+    console.log(result);
+
+
+    var object = {
+      data: {
+        info: {
+          stuff: {
+            thing: {
+              moreStuff:{
+                magicNumber: 44,
+                something: "foo2"
+              }
+            }
+          }
+        }
+      }
+    }
+
+    let hasIt = contains(object, 44);
+    let doesntHaveIt = contains(object, "foo");
+
+    function contains(object, searchValue){
+      if (typeof object != "object" || object === null){
+        return object === searchValue
+      } for (const value of Object.values(object)){
+        if (contains(value, searchValue)){
+          return true
+        }
+      }
+      return false;
+    }
+
+    console.log(hasIt);
+    console.log(doesntHaveIt);
+
+    var seven = totalIntegers([[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]]);
+    console.log(seven);
+
+    function totalIntegers(array){
+      if (array.length === 0){
+        return 0;
+      }
+        let total = 0;
+        let first = array.shift();
+
+        if (Array.isArray(first)){
+          total += totalIntegers(first);
+        } else if (Number.isInteger(first)){
+          total += 1;
+        }
+        return total + totalIntegers(array);
+      } 
+
+    var square = [1, 2, 3];
+    console.log(SumSquares(square));
+
+    function SumSquares(array){
+      if (array.length === 0){
+        return 0;
+      }
+
+      let total = 0;
+      for (let i = 0; i < array.length; i++){
+        if (Array.isArray(array[i])){
+        total += SumSquares(array[i]);
+      } else {
+        total += array[i] * array[i];
+      }
+    }
+    return total;
+    }
+    
+    function replicate(rep, num){
+      if (rep <= 0){
+        return [];
+      }
+      return [num].concat(replicate(rep - 1, num));
+    }
+
+    console.log(replicate(3, 5));
+  </script>
+</body>
+</html>
