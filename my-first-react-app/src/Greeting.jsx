@@ -1,5 +1,5 @@
 function Greeting() {
-  return <h1>&quot;Hi&quot;</h1>;
+  return <h1>&quot;Hello&quot;</h1>;
    
 }
 
