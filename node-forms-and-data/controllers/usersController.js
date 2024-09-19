@@ -115,3 +115,24 @@ exports.usersDeletePost = (req, res) => {
   usersStorage.deleteUser(req.params.id);
   res.redirect("/");
 };
+
+exports.usersSearchGet = (req, res) => {
+  res.render("searchUser", {
+    title: "Search User",
+  })
+}
+
+exports.usersSearchPost = (req, res) => {
+  const {query} = req.body;
+
+  const users = usersStorage.getUsers().filter(user => 
+    user.firstName.toLowerCase().includes(query.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(query.toLowerCase())
+  )
+
+  res.render("searchResults", {
+    title: "Search Results", 
+    users, 
+    query,
+  })
+}

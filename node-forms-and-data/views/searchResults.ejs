@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <p>Results for "<%= query %>":</p>
+  <ul>
+    <% if (users.length > 0) { %>
+      <% users.forEach(user => { %>
+        <li>
+          Name: <%= user.firstName %> <%= user.lastName %>, Email: <%= user.email %>, Age: <%= user.age  ? user.age : 'N/A' %>, Bio: <%=user.bio ? user.bio : 'N/A'%>
+        </li>
+      <% }); %>
+    <% } else { %>
+      <p>No users found matching "<%= query %>"</p>
+    <% } %>
+  </ul>
+  <a href="/search">Search again</a>
+  <a href="/">Back to home</a>
+</body>
+</html>
