@@ -1,5 +1,4 @@
 const db = require("../db/queries");
-const { search } = require("../routes/usersRouter");
 
 async function getUsernames(req, res) {
   const search = req.query.search || "";
@@ -25,8 +24,14 @@ async function createUsernamePost(req, res) {
   res.redirect("/");
 }
 
+async function deleteAllUsernames(req, res) {
+    await db.deleteAllUsernames();
+    res.send("All usernames deleted")
+}
+
 module.exports = {
   getUsernames,
   createUsernameGet,
   createUsernamePost,
+  deleteAllUsernames
 };

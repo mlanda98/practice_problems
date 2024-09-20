@@ -18,8 +18,12 @@ async function searchUsernames(searchTerm) {
   return rows;
 }
 
+async function deleteAllUsernames() {
+  await pool.query("DELETE FROM usernames");
+}
 module.exports = {
   getAllUsernames,
   insertUsername,
-  searchUsernames
+  searchUsernames,
+  deleteAllUsernames
 }
