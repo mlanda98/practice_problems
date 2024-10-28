@@ -49,6 +49,10 @@ passport.use(
 app.get("/", (req, res) => res.render("index"));
 
 app.get("/sign-up", (req, res) => res.render("sign-up-form"));
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
 
 app.post("/sign-up", async (req, res, next) => {
   try {
@@ -61,6 +65,24 @@ app.post("/sign-up", async (req, res, next) => {
     return next(err);
   }
 });
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [
+      id,
+    ]);
+    const user = rows[0];
+
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
+
 
 app.listen(3000, () => console.log("app listening on port 3000!"));
 
